@@ -1,0 +1,51 @@
+genixion
+--------
+Generate instructions.h from instructions.cpp. instructions.cpp/instructions.h is used in
+asmixion and will be used in the disassembler and the cpu.
+
+asmixion - assembler
+disixion - disassembler
+monixion - monitor/cpu
+
+genixion - utility to create instructions.h
+
+
+asmmain -> asmixion
+dismain -> disixion
+monmain -> monixion
+
+ixion         CPU
+memory        Memory
+instructions  Instruction mnemonics
+
+
+asmixion
+--------
+Essentially complete
++ fixed transfer address in S9 record
++ filename as label in S0 record
++ defined labels
++ includes (albeit for definitions only)
+
+ixion
+-----
+
+
+- monitor: some bugs, history not completed
+- cpu: needs re-implementation
+- disassembler: complete
+
+- genixion: generator for 'instructions.h' from 'instructions.cpp' table
+- assembler: complete. No defines yet, resolver ok, transfer address ok, not 100% tested
+
+
+BUGS
+====
++ fixed: forward relative jumps are off?
++ fixed: no transfer address in s19 library
++ fixed: no label in S0 record
+
+
+NOTES
+=====
+As the listing is produced during pass 1, the forward references are then not resolved yet and are printed as '----'

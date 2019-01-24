@@ -1,0 +1,35 @@
+ixion / monitor system calls
+----------------------------
+
+ 0000 TRAP                 exit cpu, enter monitor
+ 0001 PRINTF               C-like printf (arguments are on stack)
+ 0002 SCANF                C-like scanf
+ 0003 GETCH                Get a single character
+ 0004 PUTCH                Print a single character
+
+It seems a bit too much to define 65536 system calls where 8,16,32 or even 64 could be encoded in group 2.
+The reason for this is easier execution and disassembly and keeping clear of using the registers.
+A separate group with 8 byte operand was implented in cpuz8, but dropped for easier execution in scx32.
+Note that there is room for 8 separate variants of SYSCALL (xxx in instruction 0b11111xxx).
+These bits (usually addressing mode and register) are not used, but may have been used e.g. for
+argument variants of SYSCALL. Syntax is SYSCALL, SYSCALL0, SYSCALL1, SYSCALL2, SYSCALL3, SYSCALL4, SYSCALL5,
+SYSCALL6 and SYSCALL7 where SYSCALL is equivalent to SYSCALL7
+
+Implemented in group 3 (3 bytes,  65536 possible calls, no registers are used, easy execution/disassembly)
+XX0001   SYSCALL        #0001
+
+Implemented in group 2 (1 byte, up to 64 separate instructions, no easy execution)
+XX       SYSCALL01
+
+Implemented in group 1 (5 bytes, use of register, 65536 possible calls)
+XX0001   MOVE           R0,#0001
+XX       PUSH           R0
+XX       SYSCALL
+
+
+SYSCALL/SYSTEM/TRAP/RST/SWI
+---------------------------
+Although longer (7 characters), I settled for SYSCALL because it is a better description.
+SYSTEM is unclear. TRAP is traditional, RST is Z80 (and cpuz8) and SWI motorola (e.g. 6809) specific.
+SYSCALL is also used for ARM.
+
