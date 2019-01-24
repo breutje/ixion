@@ -1,17 +1,12 @@
 # ixion
 
-+---------+
-|    PC   |     can only be modified by RET, RST, JUMP, CALL and SYSCALL
-+---------+
-|    SP   |     can only be modified by PUSH, POP, PASS and SPX (exchange with register)
-+---------+
-|    R0   |     general purpose register 0
-+---------+
-|    R1   |     general purpose register 1
-+---------+
-|    R2   |     general purpose register 2
-+---------+
-|    R3   |     general purpose register 3
-+----+----+
-     | CC |     condition code register (8 bits, only 2 are used: CARRY and ZERO flags)
-     +----+
+
+| Register | Bits | Comment         |
+| -------- | ---- | --------------- |
+| PC       | 16   | Program counter |
+| SP       | 16   | Stack pointer   |
+| R0       | 16   | Register 0      |
+| R1       | 16   | Register 1      |
+| R2       | 16   | Register 2      |
+| R3       | 16   | Register 3      |
+| CC       | 8    | Condition codes |
