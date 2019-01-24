@@ -1,5 +1,6 @@
 # ixion
 
+## Registers
 
 | Register | Bits | Comment         |
 | -------- | ---- | --------------- |
@@ -10,3 +11,12 @@
 | R2       | 16   | Register 2      |
 | R3       | 16   | Register 3      |
 | CC       | 8    | Condition codes |
+
+# Instructions
+
+| GG | III | A | SS | Explanation  |
+| -- | --- | - | -- | ------------ |
+| 76 |     |   |    | Group id. if bit 7 equals 1, the instruction has a 16-bit operand |
+|    | 543 |   |    | Instruction: up to 8 instructions per group |
+|    |     | 2 |    | Addressing mode bit (0 = Direct/Immediate, 1 = PC Relative) |
+|    |     |   | 10 | Subcode: register, condition or fixed to 00 or 11, depending on instruction |
