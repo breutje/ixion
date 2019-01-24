@@ -1,5 +1,5 @@
 # ixion
-Ixion is a simple 8-bit CPU. It is based on previous designs cpuz8, scx and scx32.
+Ixion is a simple 8-bit CPU. It is based on previous designs: cpuz8, scx and scx32.
 It is named after the plutino 28978 Ixion ([https://en.wikipedia.org/wiki/28978_Ixion](https://en.wikipedia.org/wiki/28978_Ixion)).
 A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode as it is intended to be used as intelligent I/O processor... Although [backronym.org](http://backronym.org/) reports <i>one Inept Xxii Irruption Overleaping at Nonsensicality</i> (which may be a more accurate description).
 
