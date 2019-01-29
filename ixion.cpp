@@ -201,9 +201,17 @@ uint16_t ixion(uint16_t address = 0, uint16_t end = MEMSIZE - 1) {
           case SPX:
             mnemonic = (char *) "spx";
             if (execute) {
-              value = sp;
-              sp = (*reg);
-              (*reg) = value;
+              value = (*reg);
+              (*reg) = sp;
+              sp = value;
+            }
+            break;
+          case PCX:
+            mnemonic = (char *) "pcx";
+            if (execute) {
+              value = (*reg);
+              (*reg) = pc;
+              pc = value;
             }
             break;
           case PUSH:
