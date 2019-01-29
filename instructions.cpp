@@ -29,8 +29,9 @@ struct _instruction {
   { 0x50, "shl"     },
   { 0x58, "shr"     },
   { 0x60, "spx"     },
-  { 0x68, "push"    },
-  { 0x70, "pop"     },
+  { 0x68, "pcx"     },
+  { 0x70, "push"    },
+  { 0x78, "pop"     },
   
   //
   // GROUP 2 (16 bit operand, addressing mode + register)
