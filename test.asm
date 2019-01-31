@@ -11,14 +11,14 @@
         move      r0,#$0                        ; load r0 register with 0
         pass      _format                       ; push [ea] of format string on stack (stays there :-)
 _loop   push      r0                            ; iteration integer
-        syscall   #1                            ; printf
+        syscall   #printf                       ; system call
         pop       r0                            ; get argument integer back
 
         inc       r0                            ; increment (syscalls don't modify registers)
-        cmp       r0,_high                      ; compare if D is 0x000A (10 decimal)
+        cmp       r0,_high                      ; compare if r0 is 0x000A (10 decimal)
         jump      nz,_loop                      ; jump to loop if not equal
 
-        pass      _bye
+        pass      _bye                          ; push (relative) address of _bye string on stack
         syscall   #printf
 
         pop       r0                            ; (optionally) pop _bye from stack
@@ -29,6 +29,5 @@ _loop   push      r0                            ; iteration integer
 _format .string   "Loop iteration %d\n"         ; \0 terminated string
 _bye    .string   "End of program\n"            ;
 _high   .word     $000a                         ; 0x000A (10 decimal) constant
-
 
         .end     #$0000
