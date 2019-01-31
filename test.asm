@@ -5,7 +5,7 @@
 
         .org      #$0000                        ; default
 
-        load      r0,#$03ff                     ; set stack to memsize
+        move      r0,#$03ff                     ; set stack to memsize
         spx       r0
 
         move      r0,#$0                        ; load r0 register with 0
