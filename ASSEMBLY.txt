@@ -16,6 +16,7 @@ Assembler directives
   .string       Y              null terminated string. Written with double quotes, but these are not part of the string
                                there are no escapes in strings: double quotes have to be written as " .byte 22".
   .byte         Y              define byte. May be written as comma separated list e.g. " .byte 01,02,03" defines 3 bytes.
+  .word         Y              define 16-bit word.
   .define                      re-define label + value
 
   .include                     include (definitions only) file
