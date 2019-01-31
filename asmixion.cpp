@@ -64,7 +64,7 @@ int asmixion(int argc, char *argv[]) {
   char mnemonic[42];
   char *p, *s, *label, *instruction, *arguments, *aregister, *avalue;
   uint8_t code, byte, bits, condition, mode, msb, lsb;
-  uint16_t mem, start, end, address, transfer, value;
+  uint16_t mem, start, end, address, transfer, value, word;
 
   if (argc != 2) {
     printf("Error: Usage: asmixion <filename>\n");
@@ -163,6 +163,17 @@ int asmixion(int argc, char *argv[]) {
         }
         printf("\n%04d: %04X 00\n", lineno, address);
         mm[address++] = (uint8_t) 0;
+      } else if (strcasecmp(instruction, ".word") == 0) {
+        arguments = strtok(NULL, "; ");
+        for (n = 0, p = strtok(arguments, ", ;"); p != NULL; n++, p = strtok(NULL, ", ;")) {
+          word = (uint16_t) operand_value(p);
+          msb = (word & 0xFF00) >> 8;
+          lsb = word & 0x00FF;
+          printf("%04d: %04X %02X %02X\n", lineno, address, msb, lsb);
+          mm[address++] = msb;
+          mm[address++] = lsb;
+        }
+        printf("\n");
       } else if (strcasecmp(instruction, ".byte") == 0) {
         arguments = strtok(NULL, "; ");
         for (n = 0, p = strtok(arguments, ", ;"); p != NULL; n++, p = strtok(NULL, ", ;")) {
