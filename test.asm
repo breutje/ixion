@@ -15,7 +15,7 @@ _loop   push      r0                            ; iteration integer
         pop       r0                            ; get argument integer back
 
         inc       r0                            ; increment (syscalls don't modify registers)
-        cmp       r0,#$000a                     ; compare if D is 0x000A (10 decimal)
+        cmp       r0,_high                      ; compare if D is 0x000A (10 decimal)
         jump      nz,_loop                      ; jump to loop if not equal
 
         pass      _bye
@@ -24,10 +24,11 @@ _loop   push      r0                            ; iteration integer
         pop       r0                            ; (optionally) pop _bye from stack
         pop       r0                            ; (optionally) pop _format from stack
 
-        halt                                    ; notice _format is still on the stack
+        halt
 
 _format .string   "Loop iteration %d\n"         ; \0 terminated string
 _bye    .string   "End of program\n"            ;
+_high   .word     $000a                         ; 0x000A (10 decimal) constant
 
 
         .end     #$0000
