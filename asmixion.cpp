@@ -326,9 +326,6 @@ int asmixion(int argc, char *argv[]) {
             case CALL:
               code = (code | mode);
               break;
-            case PASS:
-              code = (code | mode);
-              break;
             case MOVE:
               bits = register_bits(aregister);
               code = (code | mode | bits);
