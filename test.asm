@@ -9,7 +9,8 @@
         spx       r0
 
         move      r0,#$0                        ; load r0 register with 0
-        pass      _format                       ; push [ea] of format string on stack (stays there :-)
+        move      r1,#_format                   ; load address of format string
+        push      r1
 _loop   push      r0                            ; iteration integer
         syscall   #printf                       ; system call
         pop       r0                            ; get argument integer back
@@ -18,7 +19,8 @@ _loop   push      r0                            ; iteration integer
         cmp       r0,_high                      ; compare if r0 is 0x000A (10 decimal)
         jump      nz,_loop                      ; jump to loop if not equal
 
-        pass      _bye                          ; push (relative) address of _bye string on stack
+        move      r1,#_bye
+        push      r1
         syscall   #printf
 
         pop       r0                            ; (optionally) pop _bye from stack
