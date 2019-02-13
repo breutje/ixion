@@ -32,14 +32,6 @@ Operands
 
              'MOV' is the traditional (IBM 1401) mnemonic so we opted for 'move' (although 'copy' is more exact)
 
-- memory - stack instruction (deviation from memory - register architecture)
-
-             'pass #$45'   pushes $45 on the (SP) stack
-             'pass $45'    pushes PC + $45 on the (SP) stack
-
-             pass is used to pass arguments to functions (before call) without using registers
-
-
 - all numbers are implied hexadecimal. Hexadecimal numbers may be preceded by a '$' sign.
 - A-F (or a-f) is not allowed as the first character of number (must be preceded by a 0 or $)
 
@@ -70,7 +62,7 @@ Comments
 
 Notes
 -----
-- JUMP is always conditional, unconditional jump may be 'pass <ea>' and 'ret', but is not very usefull
+- JUMP is always conditional.
 - CALL is always unconditional as this is the most common use for it. Jump around with conditional JUMP if required.
 - LSL/ASL https://stackoverflow.com/questions/44694957/please-explain-the-difference-between-logical-shift-right-arithmatic-shift-righ
   + ASL/ASR is a bit old-fashioned. LSL/LSR are more useful. By dropping them, the group ordering is more regular.
@@ -111,7 +103,6 @@ Group 3
 =======
    [<label>]   <mnemomic>    <condition>,[#]<ea>    ; jump
    [<label>]   <mnemomic>    [#]<ea>                ; call
-   [<label>]   <mnemomic>    <ea>                   ; pass
    [<label>]   <mnemomic>    <register>,[#]<ea>     ; move
    [<label>]   <mnemomic>    #<operand>             ; syscall
 
