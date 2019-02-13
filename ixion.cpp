@@ -371,15 +371,6 @@ uint16_t ixion(uint16_t address = 0, uint16_t end = MEMSIZE - 1) {
               pc = operand;
             }
             break;
-          case PASS:
-            mnemonic = (char *) "pass";
-            if (execute) {
-              lsb = (operand & 0xFF);
-              msb = (operand << 8);
-              mm[sp--] = lsb;
-              mm[sp--] = msb;
-            }
-            break;
           case MOVE:
             mnemonic = (char *) "move";
             rc = (char *) register_name[ir & REGISTER_MASK];
