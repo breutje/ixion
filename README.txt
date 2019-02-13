@@ -26,7 +26,7 @@ Register model:
 +---------+
 |    PC   |     can only be modified by RET, RST, JUMP, CALL and SYSCALL
 +---------+
-|    SP   |     can only be modified by PUSH, POP, PASS and SPX (exchange with register)
+|    SP   |     can only be modified by PUSH, POP, and SPX (exchange with register)
 +---------+
 |    R0   |     general purpose register 0
 +---------+
