@@ -16,9 +16,6 @@ _begin  jump      nz,#$cade
         call      #$cade
         call      _begin
 
-        pass      #$cade
-        pass      _begin
-
         move      r0,_begin
         move      r1,_begin
         move      r2,_begin
