@@ -50,8 +50,7 @@ struct _instruction {
   //
   { 0xc0, "jump"    },
   { 0xc8, "call"    },
-  { 0xd0, "pass"    },
-  { 0xd8, "move"    },
+  { 0xd0, "move"    },
   { 0xff, "syscall" },
 
   { 0x00, NULL      }
