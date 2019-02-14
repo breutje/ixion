@@ -2,10 +2,10 @@
 ; simple sample test program for ixion
 ;
         .include  syscall.inc                   ; system call definitions
+memsize .define   $03ff                         ; top of usable memory on AVR
 
-        .org      #$0000                        ; default
-
-        move      r0,#$03ff                     ; set stack to memsize
+        .org      #$0000                        ; at reset, cpu starts PC at $0000
+        move      r0,#memsize                   ; set stack to memsize
         spx       r0
 
         move      r0,#$0                        ; load r0 register with 0
