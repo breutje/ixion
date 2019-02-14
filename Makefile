@@ -20,7 +20,7 @@ all: $(ALL)
 # monixion - monitor / cpu
 #
 monixion_objects = monmain.o monixion.o ixion.o instructions.o memory.o utility.o s19.o build.o
-monixion: $(monixion_objects) build.cpp ixion.h memory.h s19.h instructions.h
+monixion: instructions.h $(monixion_objects) build.cpp ixion.h memory.h s19.h
 	$(CC) $(LDFLAGS) -o $@ $(monixion_objects) $(LIBS)
 	rm -f build.cpp
 
@@ -28,7 +28,7 @@ monixion: $(monixion_objects) build.cpp ixion.h memory.h s19.h instructions.h
 # asmixion - assembler
 #
 asmixion_objects = asmmain.o asmixion.o instructions.o memory.o utility.o s19.o build.o
-asmixion: $(asmixion_objects) build.cpp ixion.h memory.h s19.h instructions.h
+asmixion: instructions.h $(asmixion_objects) build.cpp ixion.h memory.h s19.h
 	$(CC) $(LDFLAGS) -o $@ $(asmixion_objects) $(LIBS)
 	rm -f build.cpp
 
@@ -36,7 +36,7 @@ asmixion: $(asmixion_objects) build.cpp ixion.h memory.h s19.h instructions.h
 # disixion - disassemble ixion S1/S9 files
 #
 disixion_objects = dismain.o disixion.o ixion.o instructions.o memory.o utility.o s19.o build.o
-disixion: $(disixion_objects) build.cpp ixion.h instructions.h memory.h
+disixion: instructions.h $(disixion_objects) build.cpp ixion.h memory.h
 	$(CC) $(LDFLAGS) -o $@ $(disixion_objects) $(LIBS)
 	rm -f build.cpp
 
@@ -48,7 +48,7 @@ genixion: $(genixion_objects)
 	$(CC) $(LDFLAGS) -o $@ $(genixion_objects) $(LIBS)
 	rm -f build.cpp
 
-instructions.h: genixion
+instructions.h: genixion 
 	./genixion
 
 build.cpp:
@@ -61,7 +61,7 @@ build.cpp:
 	@echo "`TZ=$(APP_TZ) date`\";" >>build.cpp
 
 clean:
-	rm -fr *.o build.cpp $(ALL)
+	rm -fr *.o $(ALL) build.cpp instructions.h
 
 #
 # default rule to compile .cpp files into .o file
