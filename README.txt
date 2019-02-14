@@ -6,9 +6,9 @@ ixion - simple cpu and assembler based on cpuz8, scx and scx32, named after the 
 - bit 7 determines if there is an operand.
 - only 2 addressing modes: direct/immediate and relative.
 - only 2 condition flags (zero and carry).
-- register - memory architecture with memory - stack extension
+- register - memory architecture
 - Conditional JUMP, unconditional CALL
-- no R ￩ R transfers (exchange) execept for SP
+- no R ￩ R transfers (exchange) execept for SP and PC
 - big endian (first operand byte followig instruction is msb)
 - s̶o̶m̶e̶ all code needs modernizing ;-)
 - macro's directly encode the opcode (cpuz8 used union/struct/bitfield)
@@ -46,6 +46,7 @@ assembler
 =========
 - really simple single pass in-memory assembler with S1/S9 save option
 - standalone and integrated in monitor
+- listing produced on pass 1, so no resolve (data) of forward references
 
 monitor
 =======
@@ -68,11 +69,4 @@ programmer
 - programmer is supposed to be part of monitor, not ixion cpu
 - ixion cpu used for device specific algorithms
 
-name
-====
-Ixion was really named after the plutino 28978 Ixion
-But: Intelligent eXtended I/O Node
-     -            -       - - -
-
-As ixion IS intended to do the I/O for a front-end application...
 
