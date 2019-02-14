@@ -187,11 +187,6 @@ int asmixion(int argc, char *argv[]) {
         // fix just entered label with value defined here (!)
         //
         arguments = strtok(NULL, "; ");
-        if (*arguments != '#') {
-          printf("Error: error in line #%d (only immedate arguments are allowed)\n", lineno);
-          fclose(in);
-          return -2;
-        }
         value = operand_value(++arguments);
         symbols[labelno - 1].value = value;
       } else if (strcasecmp(instruction, ".include") == 0) {
