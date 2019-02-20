@@ -24,7 +24,6 @@
 //
 // prototypes
 //
-int asmixion(int argc, char *argv[]);
 int include(char *filename);
 uint8_t register_bits(char *register_name);
 uint8_t condition_bits(char *condition_name);
