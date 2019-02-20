@@ -26,6 +26,8 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 
 # Instructions group 0
 
-| Code | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnem |
-| ---- | - | - | - | - | - | - | - | - | ---- |
-|  00  | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP  |
+| XX | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | C | Mnem | Function | Description   |
+| -- | - | - | - | - | - | - | - | - | - | ------ | -------- | ------------- |
+| 00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | NOP    | ∅        | No operation  |
+| 08 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | HALT   | 。       | Halt cpu      |
+| 10 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | CLZ    | CC{Z} ← 0 | Clear zero flag |
