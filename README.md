@@ -15,7 +15,7 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | R3       | 16   | Register 3      |
 | CC       | 8    | Condition codes |
 
-# Instructions
+# Instruction bits
 
 | GG | III | A | SS | Explanation  |
 | -- | --- | - | -- | ------------ |
@@ -23,3 +23,9 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 |    | 543 |   |    | Instruction: up to 8 instructions per group |
 |    |     | 2 |    | Addressing mode bit (0 = Direct/Immediate, 1 = PC Relative) |
 |    |     |   | 10 | Subcode: register, condition or fixed to 00 or 11, depending on instruction |
+
+# Instructions group 0
+
+| Code | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnem |
+| ---- | - | - | - | - | - | - | - | - | ---- |
+|  00  | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP  |
