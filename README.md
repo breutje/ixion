@@ -26,13 +26,27 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 
 # Instructions group 0
 
-|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function               | Description      |
-| -- | - | - | - | - | - | - | - | - | -------- | ---------------------- | ---------------- |
-| 00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP      | ∅                      | No operation     |
-| 08 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | HALT     | 。                     | Halt cpu         |
-| 10 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | CLZ      | CC{Z} ← 0              | Clear zero flag  |
-| 18 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | SEZ      | CC{Z} ← 1              | Set zero flag    |
-| 20 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | CLC      | CC{C} ← 0              | Clear carry flag |
-| 28 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | SEC      | CC{C} ← 1              | Set carry flag   |
-| 30 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | RESET    | PC ← 0000              | Soft reset       |
-| 38 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | RETURN   | PC ← [SP]; SP ← SP + 2 | Return from call |
+|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                 | Description                |
+| -- | - | - | - | - | - | - | - | - | -------- | ------------------------ | -------------------------- |
+| 00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP      | ∅                        | No operation               |
+| 08 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | HALT     | 。                       | Halt cpu                   |
+| 10 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | CLZ      | CC{Z} ← 0                | Clear zero flag            |
+| 18 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | SEZ      | CC{Z} ← 1                | Set zero flag              |
+| 20 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | CLC      | CC{C} ← 0                | Clear carry flag           |
+| 28 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | SEC      | CC{C} ← 1                | Set carry flag             |
+| 30 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | RESET    | PC ← 0000                | Soft reset                 |
+| 38 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | RETURN   | PC ← [SP]; SP ← SP + 2   | Return from call           |
+
+# Instructions group 1
+
+|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                 | Description                |
+| -- | - | - | - | - | - | - | - | - | -------- | ------------------------ | -------------------------- |
+| 40 | 0 | 1 | 0 | 0 | 0 | 0 | r | r | INC      | R ← R + 1                | Increment register         |
+| 48 | 0 | 1 | 0 | 0 | 1 | 0 | r | r | DEC      | R ← R - 1                | Decrement register         |
+| 50 | 0 | 1 | 0 | 1 | 0 | 0 | r | r | SHL      | R ← R << 1               | Logic shift left register  |
+| 58 | 0 | 1 | 0 | 1 | 1 | 0 | r | r | SHR      | R ← R >> 1               | Logic shift right register |
+| 60 | 0 | 1 | 1 | 0 | 0 | 0 | r | r | SPX      | SP ↔ R                   | Exchange SP with register  |
+| 68 | 0 | 1 | 1 | 0 | 1 | 0 | r | r | PCX      | PC ↔ R                   | Exchange PC with register  |
+| 70 | 0 | 1 | 1 | 1 | 0 | 0 | r | r | PUSH     | SP  ← SP - 2;  [SP]  ← R | Push register on stack     |
+| 78 | 0 | 1 | 1 | 1 | 1 | 0 | r | r | POP      | R ← [SP]; SP ← SP + 2    | Pop register from stack    |
+
