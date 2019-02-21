@@ -26,38 +26,47 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 
 ## Instructions group 0
 
-|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                | Description                                          |
-| -- | - | - | - | - | - | - | - | - | -------- | ----------------------- | ---------------------------------------------------- |
-| 00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP      | ∅                       | No operation                                         |
-| 08 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | HALT     | 。                      | Halt cpu                                             |
-| 10 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | CLZ      | CC{Z} ← 0               | Clear zero flag                                      |
-| 18 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | SEZ      | CC{Z} ← 1               | Set zero flag                                        |
-| 20 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | CLC      | CC{C} ← 0               | Clear carry flag                                     |
-| 28 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | SEC      | CC{C} ← 1               | Set carry flag                                       |
-| 30 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | RESET    | PC ← 0000               | Soft reset                                           |
-| 38 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | RETURN   | PC ← [SP]; SP ← SP + 2  | Return from call                                     |
+|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                             | Description                |
+| -- | - | - | - | - | - | - | - | - | -------- | ------------------------------------ | -------------------------- |
+| 00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP      | ∅                                    | No operation               |
+| 08 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | HALT     | 。                                   | Halt cpu                   |
+| 10 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | CLZ      | CC{Z} ← 0                            | Clear zero flag            |
+| 18 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | SEZ      | CC{Z} ← 1                            | Set zero flag              |
+| 20 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | CLC      | CC{C} ← 0                            | Clear carry flag           |
+| 28 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | SEC      | CC{C} ← 1                            | Set carry flag             |
+| 30 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | RESET    | PC ← 0000                            | Soft reset                 |
+| 38 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | RETURN   | PC ← [SP]; SP ← SP + 2               | Return from call           |
 
 ## Instructions group 1
 
-|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                | Description                                          |
-| -- | - | - | - | - | - | - | - | - | -------- | ----------------------- | ---------------------------------------------------- |
-| 40 | 0 | 1 | 0 | 0 | 0 | 0 | r | r | INC      | R ← R + 1               | Increment register                                   |
-| 48 | 0 | 1 | 0 | 0 | 1 | 0 | r | r | DEC      | R ← R - 1               | Decrement register                                   |
-| 50 | 0 | 1 | 0 | 1 | 0 | 0 | r | r | SHL      | R ← R << 1              | Logic shift left register                            |
-| 58 | 0 | 1 | 0 | 1 | 1 | 0 | r | r | SHR      | R ← R >> 1              | Logic shift right register                           |
-| 60 | 0 | 1 | 1 | 0 | 0 | 0 | r | r | SPX      | SP ↔ R                  | Exchange SP with register                            |
-| 68 | 0 | 1 | 1 | 0 | 1 | 0 | r | r | PCX      | PC ↔ R                  | Exchange PC with register                            |
-| 70 | 0 | 1 | 1 | 1 | 0 | 0 | r | r | PUSH     | [SP] ← R; SP  ← SP - 2  | Push register on stack                               |
-| 78 | 0 | 1 | 1 | 1 | 1 | 0 | r | r | POP      | SP ← SP + 2; R ← [SP]   | Pop register from stack                              |
+|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                             | Description                |
+| -- | - | - | - | - | - | - | - | - | -------- | ------------------------------------ | -------------------------- |
+| 40 | 0 | 1 | 0 | 0 | 0 | 0 | r | r | INC      | R ← R + 1                            | Increment register         |
+| 48 | 0 | 1 | 0 | 0 | 1 | 0 | r | r | DEC      | R ← R - 1                            | Decrement register         |
+| 50 | 0 | 1 | 0 | 1 | 0 | 0 | r | r | SHL      | R ← R << 1                           | Logic shift left register  |
+| 58 | 0 | 1 | 0 | 1 | 1 | 0 | r | r | SHR      | R ← R >> 1                           | Logic shift right register |
+| 60 | 0 | 1 | 1 | 0 | 0 | 0 | r | r | SPX      | SP ↔ R                               | Exchange SP with register  |
+| 68 | 0 | 1 | 1 | 0 | 1 | 0 | r | r | PCX      | PC ↔ R                               | Exchange PC with register  |
+| 70 | 0 | 1 | 1 | 1 | 0 | 0 | r | r | PUSH     | [SP] ← R; SP  ← SP - 2               | Push register on stack     |
+| 78 | 0 | 1 | 1 | 1 | 1 | 0 | r | r | POP      | SP ← SP + 2; R ← [SP]                | Pop register from stack    |
 
 ## Instructions group 2
-|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                | Description                                          |
-| -- | - | - | - | - | - | - | - | - | -------- | ----------------------- | ---------------------------------------------------- |
-| 80 | 1 | 0 | 0 | 0 | 0 | a | r | r | LOAD     | R ← [operand]           | Load register                |
-| 88 | 1 | 0 | 0 | 0 | 1 | a | r | r | STORE    | [operand] ← R           | Store register                  |
-| 90 | 1 | 0 | 0 | 1 | 0 | a | r | r | CMP      | CC{}  ← R O [operand]  | Compare register             |
-| 98 | 1 | 0 | 0 | 1 | 1 | a | r | r | ADD      | R ← R + [operand]       | Add to register         |
-| A0 | 1 | 0 | 1 | 0 | 0 | a | r | r | SUB      | R ← R - [operand]       | Subtract from register   |
-| A8 | 1 | 0 | 1 | 0 | 1 | a | r | r | AND      | R ← R &amp; [operand]       | Bitwise AND |
-| B0 | 1 | 0 | 1 | 1 | 0 | a | r | r | OR       | R ← R &#124; [operand]  | Bitwise OR |
-| B8 | 1 | 0 | 1 | 1 | 1 | a | r | r | XOR      | R ← R ^ [operand]       | Bitwise XOR |
+
+|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                             | Description                |
+| -- | - | - | - | - | - | - | - | - | -------- | ------------------------------------ | -------------------------- |
+| 80 | 1 | 0 | 0 | 0 | 0 | a | r | r | LOAD     | R ← [operand]                        | Load register              |
+| 88 | 1 | 0 | 0 | 0 | 1 | a | r | r | STORE    | [operand] ← R                        | Store register             |
+| 90 | 1 | 0 | 0 | 1 | 0 | a | r | r | CMP      | CC{}  ← R O [operand]                | Compare register           |
+| 98 | 1 | 0 | 0 | 1 | 1 | a | r | r | ADD      | R ← R + [operand]                    | Add to register            |
+| A0 | 1 | 0 | 1 | 0 | 0 | a | r | r | SUB      | R ← R - [operand]                    | Subtract from register     |
+| A8 | 1 | 0 | 1 | 0 | 1 | a | r | r | AND      | R ← R &amp; [operand]                | Bitwise AND register       |
+| B0 | 1 | 0 | 1 | 1 | 0 | a | r | r | OR       | R ← R &#124; [operand]               | Bitwise OR register        |
+| B8 | 1 | 0 | 1 | 1 | 1 | a | r | r | XOR      | R ← R ^ [operand]                    | Bitwise XOR register       |
+
+## Instructions group 3
+|    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                             | Description                |
+| -- | - | - | - | - | - | - | - | - | -------- | ------------------------------------ | -------------------------- |
+| C0 | 1 | 1 | 0 | 0 | 0 | a | c | c | JUMP     | PC ← operand                         | Conditional jump           |
+| C8 | 1 | 1 | 0 | 0 | 1 | a | 0 | 0 | CALL     | [SP] ← PC; SP ← SP - 2; PC ← operand | Call subroutine            |
+| D0 | 1 | 1 | 0 | 1 | 0 | a | r | r | MOVE     | R ← operand                          | Copy operand to register   |
+| FF | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | SYSCALL  | [SP] ← PC; SP ← SP - 2; TRAP operand | System call                |
