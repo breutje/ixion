@@ -67,6 +67,6 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 |    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                             | Description                |
 | -- | - | - | - | - | - | - | - | - | -------- | ------------------------------------ | -------------------------- |
 | C0 | 1 | 1 | 0 | 0 | 0 | a | c | c | JUMP     | PC ← operand                         | Conditional jump           |
-| C8 | 1 | 1 | 0 | 0 | 1 | a | 0 | 0 | CALL     | [SP] ← PC;SP ← SP - 2;PC ← operand | Call subroutine            |
+| C8 | 1 | 1 | 0 | 0 | 1 | a | 0 | 0 | CALL     | [SP] ← PC;SP ← SP-2;PC ← operand | Call subroutine            |
 | D0 | 1 | 1 | 0 | 1 | 0 | a | r | r | MOVE     | R ← operand                          | Copy operand to register   |
-| FF | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | SYSCALL  | [SP] ← PC;SP ← SP - 2;TRAP operand | System call                |
+| FF | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | SYSCALL  | [SP] ← PC;SP ← SP-2;TRAP operand | System call                |
