@@ -35,7 +35,7 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | 20 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | CLC      | CC{C} ← 0                               | Clear carry flag           |
 | 28 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | SEC      | CC{C} ← 1                               | Set carry flag             |
 | 30 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | RESET    | PC ← 0000                               | Soft reset                 |
-| 38 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | RETURN   | PC ← [SP]; SP ← SP + 2                  | Return from call           |
+| 38 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | RETURN   | SP ← SP + 2; PC ← [SP]                  | Return from call           |
 
 ### Instructions group 1
 
