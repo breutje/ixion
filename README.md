@@ -53,11 +53,11 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 ## Instructions group 2
 |    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                | Description                                          |
 | -- | - | - | - | - | - | - | - | - | -------- | ----------------------- | ---------------------------------------------------- |
-| 80 | 1 | 0 | 0 | 0 | 0 | a | r | r | LOAD     | R ← [operand]           | Load register from effective address                 |
-| 88 | 1 | 0 | 0 | 0 | 1 | a | r | r | STORE    | [operand] ← R           | Store register to effective address                  |
-| 90 | 1 | 0 | 0 | 1 | 0 | a | r | r | CMP      | CC{}  ← R :: [operand]  | Compare register with effective address              |
-| 98 | 1 | 0 | 0 | 1 | 1 | a | r | r | ADD      | R ← R + [operand]       | Add data from effecitive address to register         |
-| A0 | 1 | 0 | 1 | 0 | 0 | a | r | r | SUB      | R ← R - [operand]       | Subtract data from effective address from register   |
-| A8 | 1 | 0 | 1 | 0 | 1 | a | r | r | AND      | R ← R & [operand]       | Bitwise AND register and data from effective address |
-| B0 | 1 | 0 | 1 | 1 | 0 | a | r | r | OR       | R ← R &#124; [operand]  | Bitwise OR register and data from effective address  |
-| B8 | 1 | 0 | 1 | 1 | 1 | a | r | r | XOR      | R ← R ^ [operand]       | Bitwise XOR register and data from effective address |
+| 80 | 1 | 0 | 0 | 0 | 0 | a | r | r | LOAD     | R ← [operand]           | Load register from [EA]                 |
+| 88 | 1 | 0 | 0 | 0 | 1 | a | r | r | STORE    | [operand] ← R           | Store register to [EA]                  |
+| 90 | 1 | 0 | 0 | 1 | 0 | a | r | r | CMP      | CC{}  ← R O [operand]  | Compare register with [EA]              |
+| 98 | 1 | 0 | 0 | 1 | 1 | a | r | r | ADD      | R ← R + [operand]       | Add data from [EA] to register         |
+| A0 | 1 | 0 | 1 | 0 | 0 | a | r | r | SUB      | R ← R - [operand]       | Subtract data from [EA] from register   |
+| A8 | 1 | 0 | 1 | 0 | 1 | a | r | r | AND      | R ← R &amp; [operand]       | Bitwise register AND [EA] |
+| B0 | 1 | 0 | 1 | 1 | 0 | a | r | r | OR       | R ← R &#124; [operand]  | Bitwise register OR [EA] |
+| B8 | 1 | 0 | 1 | 1 | 1 | a | r | r | XOR      | R ← R ^ [operand]       | Bitwise register XOR [EA] |
