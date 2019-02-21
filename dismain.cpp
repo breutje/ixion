@@ -16,13 +16,14 @@
 //
 // disixion <file>
 //
-int asmixion(int argc, char *argv[]) {
-  //FILE *in;
+int main(int argc, char *argv[]) {
+  int reply;
 
   if (argc != 2) {
-    printf("Error: Usage: disixion start end\n");
+    printf("Error: Usage: disixion <objectfile>\n");
     return -1;
   }
-  return 0;
+  reply = disixion(argc, argv);
+  return reply;
 }
 

@@ -41,9 +41,9 @@ int disixion(int argc, char *argv[]) {
   printf("%s.%d\n", _version, _build);
   transfer = s19load(argc, argv);
 
-  printf("0x%04X - 0x%04X @0x%04X\n", start, end, transfer);
-  
-
+  printf("START ADDRESS   : 0x%04X\n", start);\
+  printf("END ADDRESS     : 0x%04X\n", end);\
+  printf("EXECUTE ADDRESS : 0x%04X\n", transfer);\
 
   return 0;
 }
