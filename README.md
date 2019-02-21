@@ -56,7 +56,7 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | -- | - | - | - | - | - | - | - | - | -------- | --------------------------------------- | -------------------------- |
 | 80 | 1 | 0 | 0 | 0 | 0 | a | r | r | LOAD     | R ← [operand]                           | Load register              |
 | 88 | 1 | 0 | 0 | 0 | 1 | a | r | r | STORE    | [operand] ← R                           | Store register             |
-| 90 | 1 | 0 | 0 | 1 | 0 | a | r | r | CMP      | CC{}  ← R O [operand]                   | Compare register           |
+| 90 | 1 | 0 | 0 | 1 | 0 | a | r | r | CMP      | CC{Z,C}  ← R O [operand]                | Compare register           |
 | 98 | 1 | 0 | 0 | 1 | 1 | a | r | r | ADD      | R ← R + [operand]                       | Add to register            |
 | A0 | 1 | 0 | 1 | 0 | 0 | a | r | r | SUB      | R ← R - [operand]                       | Subtract from register     |
 | A8 | 1 | 0 | 1 | 0 | 1 | a | r | r | AND      | R ← R &amp; [operand]                   | Bitwise AND register       |
