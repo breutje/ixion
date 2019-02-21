@@ -379,7 +379,16 @@ uint16_t ixion(uint16_t address = 0, uint16_t end = MEMSIZE - 1) {
             break;
           case SYSCALL:
             mnemonic = (char *) "syscall";
-            syscall(operand);
+            if (execute) {
+              //
+              // push PC
+              //
+              lsb = (pc & 0xFF);
+              msb = (pc >> 8);
+              mm[sp--] = lsb;
+              mm[sp--] = msb;
+              syscall(operand);
+            }
             break;
           default:
             mnemonic = (char *) "ILLEGAL";
