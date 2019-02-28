@@ -251,7 +251,6 @@ int match(const char *name, const char *command)
     name++;
     command++;
   }
-  printf("cmdmatch(%s, %s)\n", name, command);
   return (*name == *command);
 }
 
