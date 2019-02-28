@@ -13,7 +13,7 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | R1       | 16   | Register 1      |
 | R2       | 16   | Register 2      |
 | R3       | 16   | Register 3      |
-| CC       | 8    | Condition codes |
+| CC       | 2    | Condition codes |
 
 ## Instruction bits
 
