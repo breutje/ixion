@@ -53,6 +53,7 @@ extern unsigned char translate[];
 #define R2                0x02  // 0b00000010
 #define R3                0x03  // 0b00000011
 #define REGISTER_MASK     0x03  // 0b00000011
+#define UNKNOWN_REGISTER  0xFF  // 0b11111111
 
 //
 // conditions (direct encoding) for JUMP
@@ -62,6 +63,7 @@ extern unsigned char translate[];
 #define NOCARRY           0x02  // 0b00000010 NC
 #define CARRY             0x03  // 0b00000011 C
 #define CONDITION_MASK    0x03  // 0b00000011
+#define UNKNOWN_CONDITION 0xFF  // 0b11111111
 
 //
 // addressing modes (direct encoding) no INDEXED

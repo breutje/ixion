@@ -230,6 +230,11 @@ int asmixion(int argc, char *argv[]) {
           break;
         case 1: // GROUP 1 (no operand, register)
           bits = register_bits(arguments);
+          if (bits == UNKNOWN_REGISTER) {
+            printf("Error: unknown register \"%s\" in line #%d\n", arguments, lineno);
+            fclose(in);
+            return -2;
+          }
           code |= bits;
           printf("%04d: %04X %02X              %-12s     %s\n", lineno, address, code, mnemonic, register_name[bits]);
           mm[address++] = code;
@@ -240,6 +245,11 @@ int asmixion(int argc, char *argv[]) {
             return -2;
           }
           bits = register_bits(aregister);
+          if (bits == UNKNOWN_REGISTER) {
+            printf("Error: unknown register \"%s\" in line #%d\n", aregister, lineno);
+            fclose(in);
+            return -2;
+          }
           if (*avalue == '#') {
             mode = DIRECT;
             avalue++;
@@ -315,6 +325,11 @@ int asmixion(int argc, char *argv[]) {
           switch (code) {
             case JUMP:
               condition = condition_bits(aregister);
+              if (condition == UNKNOWN_CONDITION) {
+                printf("Error: unknown condition \"%s\" in line #%d\n", aregister, lineno);
+                fclose(in);
+                return -2;
+              }
               code = (code | mode | condition);
               break;
             case CALL:
@@ -322,6 +337,11 @@ int asmixion(int argc, char *argv[]) {
               break;
             case MOVE:
               bits = register_bits(aregister);
+              if (bits == UNKNOWN_REGISTER) {
+                printf("Error: unknown register \"%s\" in line #%d\n", aregister, lineno);
+                fclose(in);
+                return -2;
+              }
               code = (code | mode | bits);
               break;
             case SYSCALL:

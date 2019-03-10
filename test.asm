@@ -10,7 +10,7 @@ memsize .define   $03ff                         ; top of usable memory on AVR
 
         move      r0,#$0                        ; load r0 register with 0
         move      r1,#_format                   ; load address of format string
-        push      r1
+        push      r0
 _loop   push      r0                            ; iteration integer
         syscall   #printf                       ; system call
         pop       r0                            ; get argument integer back

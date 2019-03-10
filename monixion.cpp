@@ -17,6 +17,7 @@
 
 #define MAX_ARGUMENTS       10
 #define CHUNK               16 
+#define HISTORY              5
 #define PROMPT        "IXION>"  // "C:\\>" ;-)
 
 //
@@ -89,6 +90,8 @@ extern char *_date;
 // globals
 //
 uint16_t transfer;
+int history_index = 0;
+char *history_lines[HISTORY];
 
 //
 // use monitor ineractively or just to run ixion
@@ -118,7 +121,7 @@ int monixion(int argc, char *argv[])
 // simple monitor: help, run, load, list, dump, etc.
 //
 int monitor(void) {
-  char *cmd, command[READ_BUFFER + 1];
+  char *cmd, command[READ_BUFFER + 1], last[READ_BUFFER + 1];
   int n, argc, result, running = 1;
   char *found, *argv[MAX_ARGUMENTS];
   
@@ -126,6 +129,7 @@ int monitor(void) {
     argc = 0;
     printf(PROMPT);
     result = getLine(command, READ_BUFFER, stdin, true);
+    strcpy(last, command);
     putchar('\n');
     if (result == 0 || result == EOF)
       continue;
@@ -146,11 +150,12 @@ int monitor(void) {
       if (required(commands[n].name, argv[0]) || match(commands[n].name, argv[0])) {
         if (commands[n].function(argc, argv) == -1)
           running = 0;
+        printf("command[%s] is ok\n", last);
         break;
       }
     }
     if (found == NULL)
-      printf("Error: '%s' not found\n", argv[0]);
+      printf("Error: command '%s' not found\n", last); //argv[0]);
   }
   return 0;
 }

@@ -110,7 +110,7 @@ int getLine(char line[], int maxlen, FILE *stream, bool history)
   // EOF (from file)
   //
   if (c == EOF)
-   charno = EOF; // return end-of-file (kludge)
+    charno = EOF; // return end-of-file (kludge)
 
   line[charno] = '\0';
 #if defined(UNIX)
@@ -187,6 +187,8 @@ uint8_t register_bits(char *register_name)
     bits = R2;
   else if (strcasecmp(register_name, "R3") == 0)
     bits = R3;
+  else
+    bits = UNKNOWN_REGISTER;
   return bits;
 }
 
@@ -205,6 +207,8 @@ uint8_t condition_bits(char *condition_name)
     bits = NOCARRY;
   else if (strcasecmp(condition_name, "C") == 0)
     bits = CARRY;
+  else
+    bits = UNKNOWN_CONDITION;
   return bits;
 }
 
