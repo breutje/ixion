@@ -24,7 +24,7 @@ cpu
 Register model:
 
 +---------+
-|    PC   |     can only be modified by RET, RST, JUMP, CALL and SYSCALL
+|    PC   |     can only be modified by RET, RST, JUMP, CALL, PCX and SYSCALL
 +---------+
 |    SP   |     can only be modified by PUSH, POP, and SPX (exchange with register)
 +---------+
