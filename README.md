@@ -5,15 +5,22 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 
 ## Registers
 
-| Register | Bits | Comment         |
-| -------- | ---- | --------------- |
-| PC       | 16   | Program counter |
-| SP       | 16   | Stack pointer   |
-| R0       | 16   | Register 0      |
-| R1       | 16   | Register 1      |
-| R2       | 16   | Register 2      |
-| R3       | 16   | Register 3      |
-| CC       | 2    | Condition codes |
+| Register | Bits | Comment              |
+| -------- | ---- | -------------------- |
+| PC       | 16   | Program counter      |
+| SP       | 16   | Stack pointer        |
+| R0       | 16   | Register 0           |
+| R1       | 16   | Register 1           |
+| R2       | 16   | Register 2           |
+| R3       | 16   | Register 3           |
+
+## Registers (not directly addressable)
+
+| Register | Bits | Comment              |
+| -------- | ---- | -------------------- |
+| IR       | 16   | Instruction register |
+| AR       | 16   | Address register     |
+| CC       | 2    | Condition codes      |
 
 ## Instruction bits
 
@@ -77,8 +84,13 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 * The SYSCALL is clumsy, but fixed adress jumps are undesirable. An extra register will cost at least 40 extra gates.
 * SYSCALL/HLT: It may be desireable to do implement an extra register. HLT could jump there and SYSCALL could use offsets (reuse of register bits or even add 'a' bit for 8 separate syscalls).
 * CC may be extended with user/supervisor bit and/pr processor state.
+* There is no register renaming. Providing an alternate set of registers would explode the gate count.
+* The instruction set was defined to fit into a single byte (hence 8-bit CPU).
 
 ## Notes hardware
 * The CPU is implemented using micro schedulers. e.g. the fetcher is a simple state machine fetching 3 bytes (1 byte to instruction register + (optionally) 2 argument bytes to operand register).
 * The ALU is either 8 bit with micro scheduler or 16 bit direct.
+* The address generation unit output is the address output register.
 * MULT/DIV are implemented in software.
+* There is no DR (data register) as registers output their content directly to the output data bus during the right time cycle.
+* There is no pipeline, nor is ixion superscalar.
