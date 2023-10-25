@@ -70,3 +70,15 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | C8 | 1 | 1 | 0 | 0 | 1 | a | 0 | 0 | CALL     | [SP] ← PC; SP ← SP - 2;<br>PC ← operand | Call subroutine            |
 | D0 | 1 | 1 | 0 | 1 | 0 | a | r | r | MOVE     | R ← operand                             | Copy operand to register   |
 | FF | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | SYSCALL  | [SP] ← PC; SP ← SP - 2;<br>TRAP operand | System call                |
+
+## Notes ISA
+* HLT is intended as a trap into a monitor. As of now, there is no mechanism to set the jump address for HLT. Also, it _may_ become dependent on the processor state, if and when implemented.
+* As of now there is no user/supervisor mode (bit). This could be external (as it is necessary for a MMU implementation), but may also be implemented in the CPU itself.
+* The SYSCALL is clumsy, but fixed adress jumps are undesirable. An extra register will cost at least 40 extra gates.
+* SYSCALL/HLT: It may be desireable to do implement an extra register. HLT could jump there and SYSCALL could use offsets (reuse of register bits or even add 'a' bit for 8 separate syscalls).
+* CC may be extended with user/supervisor bit and/pr processor state.
+
+## Notes hardware
+* The CPU is implemented using micro schedulers. e.g. the fetcher is a simple state machine fetching 3 bytes (1 byte to instruction register + (optionally) 2 argument bytes to operand register).
+* The ALU is either 8 bit with micro scheduler or 16 bit direct.
+* MULT/DIV are implemented in software.
