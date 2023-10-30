@@ -19,6 +19,7 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | Register | Bits | Comment              |
 | -------- | ---- | -------------------- |
 | IR       | 16   | Instruction register |
+| OR       | 16   | Operand register     |
 | AR       | 16   | Address register     |
 | CC       | 2    | Condition codes      |
 
