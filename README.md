@@ -77,6 +77,10 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | C0 | 1 | 1 | 0 | 0 | 0 | a | c | c | JUMP     | PC ← operand                            | Conditional jump           |
 | C8 | 1 | 1 | 0 | 0 | 1 | a | 0 | 0 | CALL     | [SP] ← PC; SP ← SP - 2;<br>PC ← operand | Call subroutine            |
 | D0 | 1 | 1 | 0 | 1 | 0 | a | r | r | MOVE     | R ← operand                             | Copy operand to register   |
+| D8 | 1 | 1 | 0 | 1 | 1 | x | x | x |          |                                         |                            |
+| E0 | 1 | 1 | 1 | 0 | 0 | x | x | x |          |                                         |                            |
+| E8 | 1 | 1 | 1 | 0 | 1 | x | x | x |          |                                         |                            |
+| F0 | 1 | 1 | 1 | 1 | 0 | x | x | x |          |                                         |                            |
 | FF | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | SYSCALL  | [SP] ← PC; SP ← SP - 2;<br>TRAP operand | System call                |
 
 ## Notes ISA
