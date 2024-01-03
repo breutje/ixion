@@ -96,6 +96,6 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 * The CPU is implemented using micro schedulers. e.g. the fetcher is a simple state machine fetching 3 bytes (1 byte to instruction register + (optionally) 2 argument bytes to operand register).
 * The ALU is either 8 bit with micro scheduler or 16 bit direct.
 * The address generation unit output is the address output register.
-* MULT/DIV are implemented in software.
+* MUL/DIV should be implemented in software.
 * There is no DR (data register) as registers output their content directly to the output data bus during the right time cycle.
-* There is no pipeline, nor is ixion superscalar.
+* There is no pipeline, nor is ixion superscalar (but could be at the cost of exploding gate count).
