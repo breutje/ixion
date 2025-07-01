@@ -88,10 +88,10 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | FF | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | SYSCALL  | [SP] ← PC; SP ← SP - 2;<br>TRAP operand | System call                |
 
 ## Notes ISA
-* HLT is intended as a trap into a monitor. As of now, there is no mechanism to set the jump address for HLT. Also, it _may_ become dependent on the processor state, if and when implemented.
+* HALT is intended as a trap into a monitor. As of now, there is no mechanism to set a jump address for HLT. Also, it _may_ become dependent on the processor state, if and when implemented.
 * As of now there is no user/supervisor mode (bit). This could be external (as it is necessary for a MMU implementation), but may also be implemented in the CPU itself.
 * The SYSCALL is clumsy, but fixed adress jumps are undesirable. An extra register will cost at least 40 extra gates.
-* SYSCALL/HLT: It may be desireable to do implement an extra register. HLT could jump there and SYSCALL could use offsets (reuse of register bits or even add 'a' bit for 8 separate syscalls).
+* SYSCALL/HALT: It may be desireable to do implement an extra register. HALT could jump there and SYSCALL could use offsets (reuse of register bits or even add 'a' bit for 8 separate syscalls).
 * CC may be extended with user/supervisor bit and/pr processor state.
 * There is no register renaming. Providing an alternate set of registers would explode the gate count.
 * The instruction set was defined to fit into a single byte (hence 8-bit CPU).
