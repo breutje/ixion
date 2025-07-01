@@ -26,9 +26,6 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | OR       | 16   | Operand register     |
 | AR       | 16   | Address register     |
 | CC       | 2    | Condition codes      |
-| XX       | 666  | <span style="background-color: yellow">Colored cell</span> |
-| YY       | 999  |  <div style="background-color: #e6f7ff; padding: 5px;">Blue background</div> |
-| ZZ       | 666  | <span class="instruction">Yellow</span> |
 
 ## Instruction bits
 
