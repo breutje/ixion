@@ -5,10 +5,6 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 
 ## Registers
 
-<style>
-  .instruction { background-color: blue; }
-</style>
-
 | Register | Bits | Comment              |
 | -------- | ---- | -------------------- |
 | PC       | 16   | Program counter      |
