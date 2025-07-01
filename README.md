@@ -5,6 +5,10 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 
 ## Registers
 
+<style>
+  .instruction { background-color: blue; }
+</style>
+
 | Register | Bits | Comment              |
 | -------- | ---- | -------------------- |
 | PC       | 16   | Program counter      |
@@ -24,6 +28,7 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 | CC       | 2    | Condition codes      |
 | XX       | 666  | <span style="background-color: yellow">Colored cell</span> |
 | YY       | 999  |  <div style="background-color: #e6f7ff; padding: 5px;">Blue background</div> |
+| ZZ       | 666  | <span class="instruction">Yellow</span> |
 
 ## Instruction bits
 
