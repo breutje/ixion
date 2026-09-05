@@ -13,6 +13,8 @@ Historic note: it was analogous to the 6502's `BRK` instruction.
 
 ## Plan
 * Update the README.md
+* Add descriptions to the four instruction groups
+* Cross-check all instructions
 * Update the emulator (check genixion).
 * update the assembler. Modernize and make it 2-pass.
 * Write an assembler priner / guide.
