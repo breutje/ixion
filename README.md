@@ -86,7 +86,7 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 ## Notes ISA
 * HALT is intended as a trap into a monitor. As of now, there is no mechanism to set a jump address for HLT. Also, it _may_ become dependent on the processor state, if and when implemented.
 * As of now there is no user/supervisor mode (bit). This could be external (as it is necessary for a MMU implementation), but may also be implemented in the CPU itself.
-* The SYSCALL is clumsy, but fixed adress jumps are undesirable. An extra register will cost at least 40 extra gates.
+* The SYSCALL is clumsy, but fixed adress jumps are undesirable. An extra register will cost at least 40 extra gates. I'll give up SYSCALL in group 3 and move it to group 0 to replace HALT. bits 2,1 and 0 become the syscall number. SYSCALL 0 replaces HALT. Group 3 is cleaned-up and now has room for new instructions with a 16-bit operand. Seven SYSCALLs should be enough (Minix only has 3).
 * SYSCALL/HALT: It may be desireable to do implement an extra register. HALT could jump there and SYSCALL could use offsets (reuse of register bits or even add 'a' bit for 8 separate syscalls).
 * CC may be extended with user/supervisor bit and/pr processor state.
 * There is no register renaming. Providing an alternate set of registers would explode the gate count.
