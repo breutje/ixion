@@ -1,7 +1,10 @@
 # ixion
-Ixion is a simple 8-bit CPU.
+Ixion is a simple 8-bit RISC CPU.
 It is named after the plutino [28978 Ixion](https://en.wikipedia.org/wiki/28978_Ixion).
-A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode as it i̶s̶  was intended to be used as intelligent I/O processor... Although [backronym.org](http://backronym.org/) reports <i>one Inept Xxii Irruption Overleaping at Nonsensicality</i> (which may be a more accurate description).
+A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode as it was intended to be used as intelligent I/O processor... Although [backronym.org](http://backronym.org/) reports _one Inept Xxii Irruption Overleaping at Nonsensicality_ (which may be a more accurate description).
+
+## Status
+⚠️ **Preliminary / In Active Development**
 
 ## Registers
 
@@ -36,13 +39,12 @@ A possible backronym could be **I**ntelligent e**X**tended **I**/**O** **N**ode 
 
 |    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 | Mnemonic | Function                                | Description                |
 | -- | - | - | - | - | - | - | - | - | -------- | --------------------------------------- | -------------------------- |
-| 00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP      | ∅                                       | No operation               |
-| 08 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | HALT     | 。                                      | Halt cpu                   |
+| 00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | NOP      | ∅                                      | No operation               |
+| 08 | 0 | 0 | 0 | 0 | 1 | n | n | n | SYSCALL  | TBD                                     | System call                |
 | 10 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | CLZ      | CC{Z} ← 0                               | Clear zero flag            |
 | 18 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | SEZ      | CC{Z} ← 1                               | Set zero flag              |
 | 20 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | CLC      | CC{C} ← 0                               | Clear carry flag           |
 | 28 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | SEC      | CC{C} ← 1                               | Set carry flag             |
-| 30 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | RESET    | PC ← 0000                               | Soft reset                 |
 | 38 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | RETURN   | SP ← SP + 2; PC ← [SP]                  | Return from call           |
 
 ### Instructions group 1
